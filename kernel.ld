@@ -23,7 +23,7 @@ SECTIONS {
         __bss_end = .;
     }
 
-    . = ALIGN(4) /* align4 is needed to align to word size */
+    . = ALIGN(4); /* align4 is needed to align to word size */
     . += 128 * 1024;
     __stack_top = .;
 
