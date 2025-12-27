@@ -1,11 +1,11 @@
-ENTRY(boot)
+ENTRY(boot) /* if your elf loader can't look into the elf header, this is usseless (microcontrollers or plain binary executables) */
 
 SECTIONS {
 
     . = 0x80200000;
 
     .text :{
-        KEEP(*(.text.boot));
+        KEEP(*(.text.boot)); /*this section will be the first one placed in the file*/
         *(.text .text.*);
     }
 

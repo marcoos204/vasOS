@@ -1,4 +1,5 @@
 #include "kernel.h"
+#include "common.h"
 
 extern char __bss[], __bss_end[], __stack_top[]; //we need to resolve as [] so that the variables turn into pointers
                                                   //same as using extern char __bss... and then passing &__bss to memset.
@@ -42,17 +43,14 @@ void *memset(void *buf, char c, size_t n) {
    return buf;
 }
 
-int l;
 
 //some bootloaders may zero-clear bss; we do it just in case
 void kernel_main(void) {
     
     memset(__bss, 0, (size_t) __bss_end - (size_t) __bss); //initializes bss region to 0
 
-    const char *s = "\n\nHello World!\n";
-    for (int i = 0; s[i] != '\0'; i++ ){
-        putchar(s[i]);
-    }
+    printf("\n\n Hello %s\n", "World!");
+    printf("1 + 2 = %d, %x\n", 1 + 2, 0x1234abcd);
 
     for (;;){
 
