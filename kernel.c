@@ -36,13 +36,6 @@ void putchar(char ch){ //basically telling the SBI runtime service to put this c
     sbi_call(ch, 0, 0, 0, 0, 0, 0, 1 /* Console Putchar*/);
 }
 
-void *memset(void *buf, char c, size_t n) {
-   uint8_t *p = (uint8_t *) buf; //casts buf addr to 8bit, needed to define the data size to write in buf
-   while (n--)
-       *p++ = c; //assigns byte of mem to c value
-   return buf;
-}
-
 
 //some bootloaders may zero-clear bss; we do it just in case
 void kernel_main(void) {

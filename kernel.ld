@@ -1,4 +1,4 @@
-ENTRY(boot) /* if your elf loader can't look into the elf header, this is usseless (microcontrollers or plain binary executables) */
+ENTRY(boot) /* if your elf loader can't look into the elf header, this is useless (microcontrollers or plain binary executables) */
 
 SECTIONS {
 
