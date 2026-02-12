@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "cppStandard": "c++11",
+            "intelliSenseMode": "linux-clang-x86",
+            "cStandard": "c11",
+            "compilerPath": "/usr/bin/riscv32-unknown-elf-gcc"
+        }
+    ],
+    "version": 4
+}

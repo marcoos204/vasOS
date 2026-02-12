@@ -22,6 +22,17 @@
         while(1) {}                                                                         \
     } while (0)
 
+#define PROCS_MAX 8 //Max number of processes
+#define PROC_UNUSED 0 //unused process control structure
+#define PROC_RUNNABLE 1 //Runabble process
+
+struct process {
+    int pid;        //Process ID
+    int state;      //Process state: PROC_UNUSED or PROC_RUNNABLE
+    vaddr_t sp;     //Stack pointer
+    uint8_t stack[8192]; //kernel stack
+
+};
 
 struct sbiret {
     long error;
@@ -62,6 +73,8 @@ struct trap_frame {
     uint32_t sp;
 
 } __attribute__((packed)); //don't add padding nor optimizations
+
+
 
 //next macro utilizes a GNU compiler extension: Statement expression
 //it allows to define a C code block ({}) and the last line is the return value

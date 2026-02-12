@@ -9,6 +9,7 @@ typedef uint32_t size_t;
 typedef uint32_t paddr_t; //type representing physical memory addresses
 typedef uint32_t vaddr_t; //type representing virtual memory addresses. Equivalent to uintptr_t in the std library
 
+#define PAGE_SIZE 4096
 #define true 1
 #define false 0
 #define NULL ((void *) 0)
