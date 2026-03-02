@@ -17,6 +17,9 @@ typedef uint32_t vaddr_t; //type representing virtual memory addresses. Equivale
 #define is_aligned(value, align)    __builtin_is_aligned(value, align) //checks if value is a multiple of align. align must be a power of 2
 #define offsetof(type, member)      __builtin_offsetof(type, member) //returns offset of a member within a struct (how many bytes from the start of the structure)
 
+#define SYS_PUTCHAR 1 //syscall code identifying putchar
+#define SYS_GETCHAR 2 
+#define SYS_EXIT 3
 //next macros are defined in stdarg, but we will use the builtins directly. We could use that lib as its always provided by the compiler by the C standard
 
 #define va_list __builtin_va_list  //declares variable that will store info needed to retrieve the additional arguments

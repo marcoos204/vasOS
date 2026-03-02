@@ -3,6 +3,7 @@ ENTRY(boot) /* if your elf loader can't look into the elf header, this is useles
 SECTIONS {
 
     . = 0x80200000;
+    __kernel_base = .;
 
     .text :{
         KEEP(*(.text.boot)); /*this section will be the first one placed in the file*/
