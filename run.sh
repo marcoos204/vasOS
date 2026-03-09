@@ -15,5 +15,9 @@ $OBJCOPY -Ibinary -Oelf32-littleriscv shell.bin shell.bin.o #converts raw binary
 $CC $CFLAGS -Wl,-Tkernel.ld -Wl,-Map=kernel.map -o kernel.elf \
 	kernel.c common.c shell.bin.o
 
+(cd disk && tar cf ../disk.tar --format=ustar --blocking-factor=5 *.txt)                          # new
+
 $QEMU -machine virt -bios default -nographic -serial mon:stdio --no-reboot \
+	-drive file=disk.tar,format=raw,if=none,id=drive0 \
+	-device virtio-blk-device,drive=drive0,bus=virtio-mmio-bus.0 \
 	-kernel kernel.elf

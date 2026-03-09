@@ -20,6 +20,8 @@ typedef uint32_t vaddr_t; //type representing virtual memory addresses. Equivale
 #define SYS_PUTCHAR 1 //syscall code identifying putchar
 #define SYS_GETCHAR 2 
 #define SYS_EXIT 3
+#define SYS_READFILE  4
+#define SYS_WRITEFILE 5
 //next macros are defined in stdarg, but we will use the builtins directly. We could use that lib as its always provided by the compiler by the C standard
 
 #define va_list __builtin_va_list  //declares variable that will store info needed to retrieve the additional arguments
